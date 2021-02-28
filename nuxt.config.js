@@ -1,5 +1,7 @@
 const pkg = require('./package')
 
+const bodyParser = require('body-parser')
+
 module.exports = {
     mode: 'universal',
 
@@ -80,5 +82,13 @@ module.exports = {
         //           component: resolve(__dirname, 'pages/posts/index.vue')
         //       })
         //   }
-    }
+    },
+
+    /*
+    **  server middlware
+    */
+    serverMiddleware: [
+        bodyParser.json(),
+        '~/api'
+    ]
 }
