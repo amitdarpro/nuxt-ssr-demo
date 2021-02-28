@@ -34,9 +34,9 @@ export default {
     },
 
     created() {
-        console.log("\n\n\n###########################################");
-        console.log("PostList Component >> created() >> this.posts=", this.posts)
-        console.log("###########################################\n\n\n");
+        // console.log("\n\n\n###########################################");
+        // console.log("PostList Component >> created() >> this.posts=", this.posts)
+        // console.log("###########################################\n\n\n");
     }
 };
 </script>

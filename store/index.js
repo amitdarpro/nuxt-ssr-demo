@@ -33,7 +33,7 @@ const createStore = () => {
 
                 localStorage.removeItem('token')
                 localStorage.removeItem('tokenExpiration')
-                
+
                 if (process.client) {
                     Cookie.remove('token')
                     Cookie.remove('tokenExpiration')
@@ -96,6 +96,11 @@ const createStore = () => {
                     localStorage.setItem('tokenExpiration', new Date().getTime() + +res.expiresIn * 1000)
                     Cookie.set('token', res.idToken)
                     Cookie.set('tokenExpiration', new Date().getTime() + +res.expiresIn * 1000)
+
+                    // adding a call to our serverMiddlware api
+                    return this.$axios.$post('http://localhost/3000/api/track-data', {
+                        data: 'Authenticated!'
+                    })
                 }).catch(e => console.log(e))
             },
 
